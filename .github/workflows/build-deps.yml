@@ -1,0 +1,36 @@
+name: Build zlib-kit
+
+on:
+  # Triggers the workflow on push or pull request events
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows the workflow to be run from the Actions tab
+  workflow_dispatch:
+
+concurrency:
+  # If workflow for PR or push is already running, stop it and start a new one.
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+   build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    steps:
+      # Check out repository under $GITHUB_WORKSPACE
+      - uses: actions/checkout@v3
+
+      - name: Download and build zlib
+        run: |
+          cmake --version
+          cmake -B build -DPREFIX=install
+          cmake --build build -j6
+
+      - name: Create binary tarball
+        run: |
+          tar -czf zlib.tar.gz --transform='s#^install/#zlib/#g' install/
+          ls
