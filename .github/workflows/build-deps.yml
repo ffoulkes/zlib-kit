@@ -27,7 +27,7 @@ jobs:
       - name: Download and build zlib
         run: |
           cmake --version
-          cmake -B build -DPREFIX=/tmp/zlib -DGIT_PROGRESS=OFF
+          cmake -B build -DCMAKE_INSTALL_PREFIX=/tmp/zlib -DGIT_PROGRESS=OFF
           cmake --build build -j6
 
       - name: Prune folder
