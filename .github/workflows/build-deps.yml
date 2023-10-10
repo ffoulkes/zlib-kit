@@ -35,7 +35,10 @@ jobs:
 
       - name: Create source tarball
         run: |
-          tar -czf zlib-source.tar.gz --exclude=.git/ --exclude=build/ .
+          #tar -czf zlib-source.tar.gz --exclude=.git/ --exclude=build/ .
+          (cd .. ; echo "Parent directory" ; ls -l)
+          echo "HOME: $HOME"
+          echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
 
       - name: Create binary tarball
         run: |
@@ -47,5 +50,5 @@ jobs:
           name: artifacts
           path: |
             zlib-linux-x86_64.tar.gz
-            zlib-source.tar.gz
+            #zlib-source.tar.gz
           retention-days: 30
