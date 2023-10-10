@@ -32,7 +32,10 @@ jobs:
 
       - name: Create source tarball
         run: |
+          ls -l ..
+          ls -l .
           tar -czf zlib-source.tar.gz --exclude=.git/ --exclude=build/ .
+          ls -l .
 
       - name: Create binary tarball
         run: |
