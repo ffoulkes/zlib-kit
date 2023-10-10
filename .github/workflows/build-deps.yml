@@ -36,7 +36,7 @@ jobs:
       - name: Create tarballs
         run: |
           tar -czf /tmp/zlib-source.tar.gz -C .. zlib-kit/
-          tar -czf /tmp/zlib-linux-x86_64.tar.gz --transform='s#^/tmp/##g' /tmp/zlib
+          tar -czf /tmp/zlib-linux-x86_64.tar.gz /tmp/zlib
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v3.1.3
