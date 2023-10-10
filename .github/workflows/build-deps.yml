@@ -27,18 +27,18 @@ jobs:
       - name: Download and build zlib
         run: |
           cmake --version
-          cmake -B build -DPREFIX=install -DGIT_PROGRESS=OFF
+          cmake -B build -DPREFIX=/tmp/zlib -DGIT_PROGRESS=OFF
           cmake --build build -j6
 
-      - name: Create source tarball
-        run: |
-          tar -czf /tmp/zlib-source.tar.gz --exclude=./.git/ --exclude=./build/ --transform='s#^\./#zlib-kit/#g' .
+      - name: Prune folder
+        run: rm -fr build/ .git*
 
-      - name: Create binary tarball
+      - name: Create tarballs
         run: |
-          tar -czf /tmp/zlib-linux-x86_64.tar.gz --transform='s#^install/#zlib/#g' install/
+          tar -czf /tmp/zlib-source.tar.gz -C .. zlib-kit/
+          tar -czf /tmp/zlib-linux-x86_64.tar.gz --transform='#^/tmp/##g' /tmp/zlib
 
-      - name: Upload artifact
+      - name: Upload artifacts
         uses: actions/upload-artifact@v3.1.3
         with:
           name: artifacts
