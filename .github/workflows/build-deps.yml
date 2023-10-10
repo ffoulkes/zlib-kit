@@ -31,6 +31,7 @@ jobs:
           cmake --build build -j6
           pwd
           ls -l
+          echo "$GITHUB_WORKSPACE"
 
       - name: Create source tarball
         run: |
