@@ -30,14 +30,19 @@ jobs:
           cmake -B build -DPREFIX=install
           cmake --build build -j6
 
+      - name: Create source tarball
+        run: |
+          tar -czf zlib-source.tar.gz --exclude=.git/ --exclude=build/ .
+
       - name: Create binary tarball
         run: |
-          tar -czf zlib.tar.gz --transform='s#^install/#zlib/#g' install/
+          tar -czf zlib-linux-x86_64.tar.gz --transform='s#^install/#zlib/#g' install/
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3.1.3
         with:
-          name: artifact
+          name: artifacts
           path: |
-            zlib.tar.gz
+            zlib-linux-x86_64.tar.gz
+            zlib-source.tar.gz
           retention-days: 30
