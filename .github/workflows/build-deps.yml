@@ -27,28 +27,24 @@ jobs:
       - name: Download and build zlib
         run: |
           cmake --version
-          cmake -B build -DPREFIX=install
+          cmake -B build -DPREFIX=install -DGIT_PROGRESS=OFF
           cmake --build build -j6
-          pwd
-          ls -l
-          echo "$GITHUB_WORKSPACE"
 
       - name: Create source tarball
         run: |
-          #tar -czf zlib-source.tar.gz --exclude=.git/ --exclude=build/ .
-          (cd .. ; echo "Parent directory" ; ls -l)
+          tar -czf $HOME/zlib-source.tar.gz --exclude=.git/ --exclude=build/ .
           echo "HOME: $HOME"
           echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
 
       - name: Create binary tarball
         run: |
-          tar -czf zlib-linux-x86_64.tar.gz --transform='s#^install/#zlib/#g' install/
+          tar -czf $HOME/zlib-linux-x86_64.tar.gz --transform='s#^install/#zlib/#g' install/
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3.1.3
         with:
           name: artifacts
           path: |
-            zlib-linux-x86_64.tar.gz
-            #zlib-source.tar.gz
+            $HOME/zlib-linux-x86_64.tar.gz
+            $HOME/zlib-source.tar.gz
           retention-days: 30
