@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.15)
+cmake_minimum_required(VERSION 3.15...)
 
 project(zlib-kit VERSION 1.0 LANGUAGES C CXX)
 
@@ -26,6 +26,9 @@ set_property(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS
 #-----------------------------------------------------------------------
 set(PREFIX "${CMAKE_SOURCE_DIR}/install")
 set(CMAKE_INSTALL_PREFIX "${PREFIX}" CACHE STRING "Install path prefix." FORCE)
+
+cmake_print_variables(PREFIX)
+cmake_print_variables(CMAKE_INSTALL_PREFIX)
 
 #-----------------------------------------------------------------------
 # ZLIB
