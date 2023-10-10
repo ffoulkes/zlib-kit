@@ -22,15 +22,6 @@ set_property(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS
   "Debug;Release;RelWithDebInfo")
 
 #-----------------------------------------------------------------------
-# CMAKE_INSTALL_PREFIX
-#-----------------------------------------------------------------------
-set(PREFIX "${CMAKE_SOURCE_DIR}/install")
-set(CMAKE_INSTALL_PREFIX "${PREFIX}" CACHE STRING "Install path prefix." FORCE)
-
-cmake_print_variables(PREFIX)
-cmake_print_variables(CMAKE_INSTALL_PREFIX)
-
-#-----------------------------------------------------------------------
 # ZLIB
 #-----------------------------------------------------------------------
 set(ZLIB_GIT_URL    https://github.com/madler/zlib)
