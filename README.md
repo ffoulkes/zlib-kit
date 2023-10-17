@@ -7,7 +7,7 @@ And monarchs to behold the swelling scene!
 Then should the warlike Harry, like himself,
 Assume the port of Mars; and at his heels,
 Leash'd in like hounds, should famine, sword and fire
-Crouch for employment. But pardon, and gentles all,
+Crouch for employment. But pardon, gentles all,
 The flat unraised spirits that have dared
 On this unworthy scaffold to bring forth
 So great an object: can this cockpit hold
@@ -23,7 +23,7 @@ Are now confined two mighty monarchies,
 Whose high upreared and abutting fronts
 The perilous narrow ocean parts asunder:
 Piece out our imperfections with your thoughts;
-Into a thousand parts divide on man,
+Into a thousand parts divide one man,
 And make imaginary puissance;
 Think when we talk of horses, that you see them
 Printing their proud hoofs i' the receiving earth;
