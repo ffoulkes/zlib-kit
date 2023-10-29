@@ -34,3 +34,5 @@ Into an hour-glass: for the which supply,
 Admit me Chorus to this history;
 Who prologue-like your humble patience pray,
 Gently to hear, kindly to judge, our play.
+
+-- William Shakespeare
